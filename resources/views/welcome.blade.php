@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="dark"  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,58 +11,72 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <script src="{{asset('js/dark-mode.js')}}" defer></script>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-100 dark:bg-gray-900 h-screen antialiased leading-none font-sans">
 <div class="flex flex-col">
-    @if(Route::has('login'))
-        <div class="absolute top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
+    @if(Route::has('prox-homepage'))
+        <div class="absolute flex top-0 right-0 mt-4 mr-4 space-x-4 sm:mt-6 sm:mr-6 sm:space-x-6">
+
             @auth
-                <a href="{{ url('/home') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                <a href="{{ url('/home') }}"
+                   class="no-underline  text-sm font-normal text-teal-800 dark:text-gray-200 uppercase">{{ __('Home') }}</a>
             @else
-                <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Login') }}</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a>
-                @endif
+                <a href="{{ route('prox-login') }}"
+                   class="no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase">{{ __('Login') }}</a>
+                <a href="{{ route('prox-register') }}"
+                   class="no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase">{{ __('Register') }}</a>
             @endauth
         </div>
     @endif
-
-    <div class="min-h-screen flex items-center justify-center">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
         <div class="flex flex-col justify-around h-full">
             <div>
-                <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
-                    {{ config('app.name', 'Laravel') }}
+                <h1 class="mb-6 text-gray-600 dark:text-gray-200 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
+                    {{ config('app.name', 'Proximity UI') }}
                 </h1>
                 <ul class="flex flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
+
                     <li>
-                        <a href="https://laravel.com/docs" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Documentation">Documentation</a>
+                        <a target="_blank" href="https://laravel.com/docs"
+                           class="no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="Laravel Documentation">Laravel Documentation</a>
                     </li>
                     <li>
-                        <a href="https://laracasts.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Laracasts">Laracasts</a>
+                        <a target="_blank"
+                           class="cursor-pointer no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="Tailwind UI Kits">Tailwind UI Kits</a>
                     </li>
+
                     <li>
-                        <a href="https://laravel-news.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="News">News</a>
+                        <a target="_blank" href="{{url('https://github.com/Pixelated21/Proximity-UI')}}"
+                           class="no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="GitHub">GitHub</a>
                     </li>
+
                     <li>
-                        <a href="https://nova.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Nova">Nova</a>
+                        <a target="_blank" href="{{url('https://www.jetbrains.com/phpstorm/')}}"
+                           class="no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="GitHub">Php Storm</a>
                     </li>
+
                     <li>
-                        <a href="https://forge.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Forge">Forge</a>
+                        <a target="_blank"
+                           class="cursor-pointer no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="Laravel Packages">Laravel Packages</a>
                     </li>
+
                     <li>
-                        <a href="https://vapor.laravel.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Vapor">Vapor</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/laravel/laravel" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="GitHub">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://tailwindcss.com" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Tailwind Css">Tailwind CSS</a>
+                        <a target="_blank" href="{{url('https://source.unsplash.com')}}"
+                           class="cursor-pointer no-underline text-sm font-normal text-teal-800 dark:text-gray-200  transition hover:border-gray-500  border-b border-transparent duration-300  uppercase"
+                           title="Unsplash Random Image">{{__('Random Images')}}</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+{{--<x-modal/>--}}
 </body>
 </html>

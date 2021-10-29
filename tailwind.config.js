@@ -3,7 +3,9 @@ module.exports = {
     './resources/views/**/*.blade.php',
     './resources/css/**/*.css',
   ],
-  theme: {
+    darkMode: 'class',
+
+    theme: {
     extend: {}
   },
   variants: {},
