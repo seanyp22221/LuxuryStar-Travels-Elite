@@ -6,6 +6,7 @@
 
 
 ])
+<div class="flex flex-col">
 
 {{--Label--}}
 @if ($label !== false)
@@ -15,7 +16,7 @@
         for="{{$id}}"
         @endif
 
-        class="block text-sm mb-1 font-medium text-neutral-600 dark:text-gray-300"> {{$title}}
+        class="block text-sm mb-1 text-left font-medium text-gray-300"> {{$title}}
 
     </label>
 @endif
@@ -25,24 +26,21 @@
 
     $class = 'block
                       w-full
-                      px-5
-                      py-3
-                      text-base text-neutral-600
-                      placeholder-gray-400
+                      px-4
+                      py-2
                       transition
                       duration-500
                       ease-in-out
                       transform
                       border border-gray-200
-                      rounded-lg
-                      bg-gray-50
+                      rounded
                           focus:outline-none
-                          focus:ring-gray-400
+                          focus:ring-orange-400
                           focus:ring-offset-gray-900
                           placeholder-gray-400
-                          dark:bg-gray-600
-                          dark:text-gray-100
-                          dark:placeholder-gray-200
+                          bg-gray-600
+                          text-gray-100
+                          placeholder-gray-200
                    ';
 
 
@@ -70,3 +68,4 @@
     @endif
 
 >
+</div>

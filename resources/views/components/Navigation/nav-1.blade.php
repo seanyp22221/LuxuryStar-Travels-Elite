@@ -5,13 +5,13 @@
    'end' => false,
 ])
 
-<div {{$attributes->merge(['class' => 'shadow-sm dark:bg-gray-900'])}}>
+<div {{$attributes->merge(['class' => 'shadow-sm bg-gray-800'])}}>
     <header>
         <div class="py-3.5 px-4 sm:px-2 w-screen">
             <div class="flex items-center justify-between space-x-4 lg:space-x-10">
                 @if ($title)
                     <div class="flex lg:w-0 lg:flex-1">
-                        <p class="text-2xl text-gray-600 hover:text-gray-800 dark:text-gray-100 dark:hover:text-gray-300 duration-300 font-bold">
+                        <p class="text-2xl text-gray-100 hover:text-gray-300 duration-300 font-bold">
                             {{$title}}
                         </p>
                     </div>
@@ -42,11 +42,12 @@
 
                 <div class="lg:hidden">
                     <button
-                        class="px-4 py-2.5 text-sm font-medium hover:text-white bg-gray-300 hover:bg-red-600 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-blue-600 transition duration-300 rounded-lg" type="button">
+                        class="px-2 py-4  text-sm font-medium hover:text-white bg-gray-600 text-gray-100 hover:bg-blue-600 transition duration-300 rounded-lg" type="button">
                         <span class="sr-only">Menu</span>
-                        <i class="fad fa-bars"></i>
+                        <i class="gg-menu"></i>
                     </button>
                 </div>
+
             </div>
         </div>
     </header>

@@ -3,12 +3,12 @@
     'pagination' => false,
     'button' => false
 ])
-<div class="container mx-auto px-4 sm:px-8">
+<div class="container shadow-2xl mx-auto px-4 sm:px-4">
     <div class="mt-4">
         @if ($title)
             <div class=" flex items-center justify-between px-5">
                 <div>
-                    <h2 class="text-2xl font-semibold dark:text-gray-100 leading-tight">{{$title}}</h2>
+                    <h2 class="text-2xl font-semibold text-gray-100 leading-tight">{{$title}}</h2>
                 </div>
 
                 @if ($button)
@@ -21,13 +21,14 @@
             </div>
         @endif
 
-        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+        <div class=" py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded overflow-hidden">
                 <table class="min-w-full leading-normal">
 
                     <thead>
-
-                    {{$thead}}
+                    <x-Table.table-row>
+                        {{$thead}}
+                    </x-Table.table-row>
 
                     </thead>
 
@@ -40,9 +41,9 @@
             </div>
             @if($pagination)
 
-            {{$pagination}}
+                {{$pagination}}
 
-                @endif
+            @endif
 
         </div>
     </div>

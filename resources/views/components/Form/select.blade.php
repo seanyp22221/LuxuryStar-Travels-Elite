@@ -1,4 +1,5 @@
 @props([
+    'label' => false,
     'title' => false,
     'id' => false,
     'options' => false,
@@ -8,9 +9,19 @@
 
 ])
 
-<div>
-    @if ($title)
-        <label class="sr-only text-black" @if($id) for="{{$id}}" @endif >{{$title}}</label>
+<div class="flex flex-col">
+
+    {{--Label--}}
+    @if ($label !== false)
+        <label
+
+            @if($id !== false)
+            for="{{$id}}"
+            @endif
+
+            class="block text-sm mb-1 text-left font-medium text-gray-300"> {{$title}}
+
+        </label>
     @endif
 
     @php
@@ -18,41 +29,38 @@
         $class = 'block
                           form-select
                           w-full
-                          px-5
-                          py-3
-                          text-base text-neutral-600
-                          placeholder-gray-300
+                          px-4
+                          py-2
                           transition
                           duration-500
                           ease-in-out
                           transform
-                          rounded-lg
-                          bg-gray-50
-                          text-gray-400
-                          focus:outline-none
-                          focus:border-transparent
+                          border border-gray-200
+                          rounded
+                              focus:outline-none
+                              focus:ring-orange-400
+                              focus:ring-offset-gray-900
+                              placeholder-gray-400
+                              bg-gray-600
+                              text-gray-100
+                              placeholder-gray-200
+                       ';
+
+
+        if ($error) {
+            $class .=' focus:border-transparent
                           focus:ring-2
-                          focus:ring-gray-400
-                          focus:ring-offset-gray-900
-                          dark:bg-gray-600
-                          dark:text-gray-100';
-
-            if ($error) {
-                    $class .= '
-
-                               border border-red-300
-                               focus:ring-red-300
-                               focus:ring-offset-2
-                               focus:ring-offset-red-400
-';
-                    }
-                else{
-                    $class .= '
-                               border border-gray-200
-                               focus:ring-white
-                               focus:ring-offset-2
-                               focus:ring-offset-gray-300';
-                }
+                           border-red-300
+                            focus:ring-red-300
+                             focus:ring-offset-red-400';
+            }
+        else{
+            $class .=' focus:border-transparent
+                          focus:ring-2
+                          focus:ring-white
+                          focus:ring-offset-2
+                          focus:ring-offset-gray-300';
+        }
     @endphp
 
 
